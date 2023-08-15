@@ -1,9 +1,7 @@
-type IntlDateProps = {
-  date: Date
-  timeZone?: string
-}
+<script lang="ts">
+  export let timeZone: string | undefined
+  export let date: Date
 
-export const IntlDate = ({ date, timeZone }: IntlDateProps) => {
   const isoString = date.toISOString()
   const formattedDate = new Intl.DateTimeFormat(undefined, {
     year: 'numeric',
@@ -11,6 +9,6 @@ export const IntlDate = ({ date, timeZone }: IntlDateProps) => {
     day: 'numeric',
     timeZone,
   }).format(date)
+</script>
 
-  return <time dateTime={isoString}>{formattedDate}</time>
-}
+<time dateTime={isoString}>{formattedDate}</time>

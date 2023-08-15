@@ -1,4 +1,4 @@
-import { ChangeEvent, Suspense, useState } from 'react'
+<!-- import { ChangeEvent, Suspense, useState } from 'react'
 import { Await, useFetcher } from '@remix-run/react'
 
 export const Setting = ({
@@ -76,4 +76,4 @@ export const Setting = ({
       </label>
     </fetcher.Form>
   )
-}
+} -->

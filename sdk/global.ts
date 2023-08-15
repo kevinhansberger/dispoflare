@@ -9,7 +9,7 @@ export async function fetchAPI<T>(
       method,
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${env.CLOUDFLARE_API_TOKEN}`,
+        Authorization: `Bearer ${env?.CLOUDFLARE_API_TOKEN}`,
       },
       body,
     })
@@ -17,7 +17,8 @@ export async function fetchAPI<T>(
 
   // Discard erroneous answers
   if (api.success !== true) {
-    throw new Error(JSON.stringify(api.errors))
+    return Promise.reject(api.errors[0].message)
+    //throw new Error(api.errors)
   }
 
   return api.result

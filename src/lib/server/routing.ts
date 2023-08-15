@@ -1,14 +1,13 @@
-import { AppLoadContext } from '@remix-run/cloudflare'
-import * as routing from 'sdk/routing'
+import * as routing from '../../../sdk/routing'
 
 export async function getRoutingZones(
   zones: Zone[] | Promise<Zone[]>,
-  context: AppLoadContext,
+  env: App.Platform['env'],
 ): Promise<Array<Zone>> {
   const allZones = await zones
   const routingZones: Array<PromiseSettledResult<Routing>> =
     await Promise.allSettled(
-      allZones.map((zone: Zone) => routing.get(zone, context)),
+      allZones.map((zone: Zone) => routing.get(zone, env)),
     )
   return routingZones
     .filter((zone) => zone.status === 'fulfilled' && zone.value.enabled)
