@@ -1,4 +1,4 @@
-import * as routing from '../../../sdk/routing'
+import * as routing from '$sdk/routing'
 
 export async function getRoutingZones(
   zones: Zone[] | Promise<Zone[]>,

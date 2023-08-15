@@ -1,4 +1,4 @@
-import * as rules from '../../../sdk/rules'
+import * as rules from '$sdk/rules'
 
 export async function getRules(
   zones: Zone[] | Promise<Zone[]>,

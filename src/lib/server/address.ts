@@ -1,4 +1,4 @@
-import * as addresses from '../../../sdk/addresses'
+import * as addresses from '$sdk/addresses'
 
 export async function getAddresses(
   env: App.Platform['env'],
