@@ -1,4 +1,4 @@
-import * as rules from '$sdk/rules'
+import * as rules from '../../../sdk/rules'
 
 export async function getRules(
   zones: Zone[] | Promise<Zone[]>,
@@ -7,19 +7,22 @@ export async function getRules(
   return rules.list(await zones, env)
 }
 
-export async function createRule({
-  rule,
-  zone,
-  address,
-  expire,
-  remove,
-}: {
-  rule: string
-  zone: Zone
-  address: string
-  expire: string
-  remove: Date | boolean
-}): Promise<void> {
+export async function createRule(
+  {
+    rule,
+    zone,
+    address,
+    expire,
+    remove,
+  }: {
+    rule: string
+    zone: Zone
+    address: string
+    expire: string
+    remove: Date | boolean
+  },
+  env: App.Platform['env'],
+): Promise<void> {
   if (remove === true) {
     remove = new Date(expire)
     remove.setMonth(remove.getMonth() + 1)
@@ -52,10 +55,16 @@ export async function createRule({
   )
 }
 
-export async function dropRule(rule: Rule): Promise<void> {
+export async function dropRule(
+  rule: Rule,
+  env: App.Platform['env'],
+): Promise<void> {
   await rules.remove(rule, env)
 }
 
-export async function updateRule(rule: Rule): Promise<Rule> {
+export async function updateRule(
+  rule: Rule,
+  env: App.Platform['env'],
+): Promise<Rule> {
   return rules.put(rule, env)
 }

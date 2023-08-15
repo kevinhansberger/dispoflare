@@ -14,8 +14,7 @@
       "$lib/*": ["./src/lib/*"],
       "$sdk": ["./sdk"],
       "$sdk/*": ["./sdk/*"]
-    },
-    "rootDirs": [".", "./.svelte-kit/types", "./workers"]
+    }
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   //

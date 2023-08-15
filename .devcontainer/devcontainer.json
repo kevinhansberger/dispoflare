@@ -26,6 +26,7 @@
       },
       "extensions": [
         "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
         "svelte.svelte-vscode",
